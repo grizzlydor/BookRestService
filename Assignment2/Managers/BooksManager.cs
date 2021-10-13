@@ -12,11 +12,11 @@ namespace Assignment2.Managers
         private static List<Book> _books = new List<Book>()
         {
             new Book() {Title = "JavaScript and JQuery: Interactive Front-End Web Development",
-                Author = "Jon Duckett", PageNumber = 645, ISBN13 = 978-1118531648},
+                Author = "Jon Duckett", PageNumber = 645, ISBN13 = "978-1118531648"},
             new Book() {Title = "The Agile Samurai: How Agile Masters Deliver Great Software (Pragmatic Programmers)",
-                Author = "Jonathan Rasmusson", PageNumber = 267 , ISBN13 = 978-1934356586},
+                Author = "Jonathan Rasmusson", PageNumber = 267 , ISBN13 = "978-1934356586"},
             new Book() {Title = "Extreme Programming Explained",
-                    Author = "Kent Beck, Cynthia Andres", PageNumber = 224, ISBN13 = 978-0321278654}
+                    Author = "Kent Beck, Cynthia Andres", PageNumber = 224, ISBN13 = "978-0321278654"}
         };
         #endregion
         #region GetAll
@@ -31,7 +31,7 @@ namespace Assignment2.Managers
         /// </summary>
         /// <param name="isbn"></param>
         /// <returns></returns>
-        public Book GetBookByISBN(int isbn)
+        public Book GetBookByISBN(string isbn)
         {
             Book book = _books.Find(b => b.ISBN13 == isbn);
                 return book;
@@ -53,7 +53,7 @@ namespace Assignment2.Managers
         /// </summary>
         /// <param name="isbn"></param>
         /// <returns></returns>
-        public Book Delete(int isbn)
+        public Book Delete(string isbn)
         {
             Book book = _books.Find(book => book.ISBN13 == isbn);
             if (book == null)
@@ -63,7 +63,7 @@ namespace Assignment2.Managers
         }
         #endregion
         #region Update
-        public Book Update(int isbn, Book update)
+        public Book Update(string isbn, Book update)
         {
             var book = GetBookByISBN(isbn);
             if (book == null) return null;
